@@ -1,22 +1,47 @@
 @font-face {
-    font-family: Calculator; src: url("./digital-7.ttf");
+	font-family: Calculator;
+	src: url("./digital-7.ttf");
 }
 
-html{
-  background: #EA7E67;
-  font-family: "Lucida Console", Monaco, monospace;
+html {
+	/*background: #ea7e67;*/
+
+	background: #ff6f60;
+	font-family: "Lucida Console", Monaco, monospace;
 }
-.clock{
-  display: block;
-  margin: 0 auto;
-  width: ;
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
 }
-#clock_numbers{
-  font: 300 33.3333px Calculator;
-  font-size: 10em;
-  width: 100%;
+.clock {
 }
-.div{
-  width: max-content;
-  margin: 0 auto;
+.clock_working {
+	background: #dd130f;
+	border: 0.5em solid #dd130f;
+	display: inline-block;
+	width: 99%;
+	border-radius: 0.25em;
+	text-align: center;
+}
+
+.clock_relaxing {
+	background: #42f560;
+	border: 0.5em solid #42f560;
+	display: inline-block;
+	width: 99%;
+	border-radius: 0.25em;
+	text-align: center;
+}
+#clock_numbers {
+	font: 300 33.3333px Calculator;
+	font-size: 10em;
+	width: 100%;
+	color: rgb(88, 86, 86);
+}
+.div {
+	width: max-content;
+	margin: 0 auto;
 }

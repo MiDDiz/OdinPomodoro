@@ -2,46 +2,83 @@
 	font-family: Calculator;
 	src: url("./digital-7.ttf");
 }
-
-html {
-	/*background: #ea7e67;*/
-
-	background: #ff6f60;
-	font-family: "Lucida Console", Monaco, monospace;
+@font-face {
+	font-family: 'Marat Sans Medium';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Marat Sans Medium'), url('Marat Sans Medium.woff') format('woff');
 }
 
-main {
+
+html, 
+body {
+    min-height: 100%;
+	
+    font-family: "Marat Sans Medium", "Lucida Console", Monaco, monospace;
+    height: 100%;
+}
+body{
+    
+}
+
+.main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 auto;
+    margin: 0 auto;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(235, 229, 229, 0.753);
+    background-image: url("gente-trabajando.jpeg");
+    background-repeat: space;
+    background-size: 100%;
+    
+
 }
 .clock {
 }
-.clock_working {
-	background: #dd130f;
-	border: 0.5em solid #dd130f;
+.clock_div {
 	display: inline-block;
 	width: 99%;
 	border-radius: 0.25em;
 	text-align: center;
 }
 
-.clock_relaxing {
-	background: #42f560;
-	border: 0.5em solid #42f560;
-	display: inline-block;
-	width: 99%;
-	border-radius: 0.25em;
-	text-align: center;
-}
+
 #clock_numbers {
+    background: none;
 	font: 300 33.3333px Calculator;
 	font-size: 10em;
 	width: 100%;
-	color: rgb(88, 86, 86);
+    
+    text-shadow: 2px 2px #000000;
+
 }
-.div {
-	width: max-content;
-	margin: 0 auto;
+.working-bar-horizontal{
+    width: 70%;
+    height: 1.5em;
+    margin: 1em auto;
+
+    border-radius: 0.75em;
 }
+
+.working-state{
+    background: #ffda33;
+    color: #ffda33;
+}
+.relaxed-state{
+    background: #42f560;
+    color: #42f560;
+}
+.paused-state{
+    background: #999999;
+    color: #999999;
+}
+
+button{
+    padding: 0.75em;
+    margin: 1em;
+    font-size: 1.5em;
+    
+}
+

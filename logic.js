@@ -1,25 +1,53 @@
 //Get documents
 const btnStart = document.getElementById('start_button');
 const btnPause = document.getElementById('pause_button');
-const wrpClock = document.getElementById('clock_wrapper');
+const spnClock = document.getElementById('clock_numbers');
 const txtClock = document.getElementById('clock_numbers');
+const divDecorations = document.querySelectorAll(".working-bar-horizontal");
 
 //Initial Variables
 //TODO: Get this through the page
 let minutes = 24;
 let seconds = 59;
 var myTimer;
+let paused = false;
 
 //State true -> working. State false -> Relaxing.
 let state_of_work = true;
 
 function changeState() {
+    
+    if (paused){
+        /*Quick Fix tbh i didnt want to spend much time implementing pause*/
+        /*TODO: MUST IMPLEMENT THE LOGIC WHEN GOING OUT OF PAUSE*/
+        if(state_of_work){
+            spnClock.classList.replace('working-state', 'paused-state');
+        divDecorations.forEach(e => {
+            e.classList.replace('working-state', 'paused-state');
+        });
+        }
+        else{
+            spnClock.classList.replace('relaxed-state', 'paused-state');
+            divDecorations.forEach(e => {
+            e.classList.replace('relaxed-state', 'paused-state');
+        });
+        }
+        return;
+    }
 	if (state_of_work) {
-		wrpClock.classList.replace('clock_working', 'clock_relaxing');
+        spnClock.classList.replace('working-state', 'relaxed-state');
+        divDecorations.forEach(e => {
+            e.classList.replace('working-state', 'relaxed-state');
+        });
+
 		minutes = 4;
 		seconds = 59;
 	} else {
-		wrpClock.classList.replace('clock_relaxing', 'clock_working');
+        spnClock.classList.replace('relaxed-state', 'working-state');
+        divDecorations.forEach(e => {
+            e.classList.replace('relaxed-state', 'working-state');
+        });
+
 		minutes = 24;
 		seconds = 59;
 	}
@@ -50,11 +78,14 @@ function manageSeconds() {
 function startClock() {
 	myTimer = setInterval(() => {
 		manageSeconds();
-	}, 1000);
+    }, 1000);
+    paused = false;
 }
 
 function pauseClock() {
-	clearInterval(myTimer);
+    clearInterval(myTimer);
+    paused = true;
+    changeState();
 }
 
 btnStart.addEventListener('click', () => {
